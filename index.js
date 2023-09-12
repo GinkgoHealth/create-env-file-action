@@ -14,7 +14,7 @@ try {
   });
 
   fs.writeFile(fileName, envFileContent, function (error) {
-    console.log(fileName);
+    console.log(__dirname + fileName);
     if (error) {
       core.setFailed(error.message);
     }
