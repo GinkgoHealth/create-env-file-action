@@ -14,7 +14,9 @@ try {
     }
   });
   console.log(directory + "/" + fileName);
+  console.log(envFileContent);
   fs.writeFileSync(directory + "/" + fileName, envFileContent, { flag: 'w' });
+  console.log(fs.readFileSync(directory + "/" + fileName, "utf8"));
 } catch (error) {
   core.setFailed(error.message);
 }
