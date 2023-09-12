@@ -9,6 +9,8 @@ try {
   let envFileContent = '';
 
   Object.keys(process.env).forEach(function(key) {
+    console.log("key ...");
+    console.log(key);
     if(key.startsWith(inputPrefix)) {
       envFileContent += `${key.substring(inputPrefix.length)}=${process.env[key]}\n`;
     }
