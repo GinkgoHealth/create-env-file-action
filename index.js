@@ -13,10 +13,15 @@ try {
       envFileContent += `${key.substring(inputPrefix.length)}=${process.env[key]}\n`;
     }
   });
+  console.log("start 1");
   console.log(directory + "/" + fileName);
+  console.log("start 2");
   console.log(envFileContent);
+  console.log("start 3");
   fs.writeFileSync(directory + "/" + fileName, envFileContent, { flag: 'w' });
+  console.log("start 4");
   console.log(fs.readFileSync(directory + "/" + fileName, "utf8"));
+  console.log("start 5");
 } catch (error) {
   core.setFailed(error.message);
 }
