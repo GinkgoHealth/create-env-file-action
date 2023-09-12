@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const inputPrefix = "INPUT_ENV_";
 const fileName = core.getInput('file-name') || '.env';
+const directory = core.getInput('directory') || './';
 
 try {
   let envFileContent = '';
@@ -12,9 +13,9 @@ try {
       envFileContent += `${key.substring(inputPrefix.length)}=${process.env[key]}\n`;
     }
   });
-
-  fs.writeFile(fileName, envFileContent, function (error) {
-    console.log(__dirname + fileName);
+  console.log(directory + "/" + fileName);
+  fs.writeFile(directory + "/" + fileName, envFileContent, function (error) {
+    
     if (error) {
       core.setFailed(error.message);
     }
