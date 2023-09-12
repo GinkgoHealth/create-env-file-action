@@ -14,12 +14,7 @@ try {
     }
   });
   console.log(directory + "/" + fileName);
-  fs.writeFile(directory + "/" + fileName, envFileContent, function (error) {
-    
-    if (error) {
-      core.setFailed(error.message);
-    }
-  });
+  fs.writeFileSync(directory + "/" + fileName, envFileContent, { flag: 'w' });
 } catch (error) {
   core.setFailed(error.message);
 }
